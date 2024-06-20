@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Students Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            width: 100px;
+            background-color: blue;
+            color: #ccc;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>School Students List</h1>
+    <table>
+        <tr>
+            <th>Roll No</th>
+            <th>Student Name</th>
+            <th>Grade</th>
+            <th>Subject</th>
+            <th>Score</th>
+        </tr>
+        <% students.map(student => { %>
+        <tr>
+            <td><%= student.roll_no %></td>
+            <td><%= student.student_name %></td>
+            <td><%= student.grade %></td>
+            <td><%= student.sub %></td>
+            <td><%= student.score %></td>
+        </tr>
+        <% }) %>
+    </table>
+    <h2>Add Student Data:</h2>
+    <form action="/table" method="post">
+        <div class="table-group">
+            <label for="roll_number">Roll No :</label>
+            <input type="number" id="roll_number" name="roll_number" placeholder="Enter your Roll no:" required>
+        </div><br>
+        <div class="table-group">
+            <label for="student_name">Student :</label>
+            <input type="text" id="student_name" name="student_name" placeholder="Enter Student Name:" required>
+        </div><br>
+        <div class="table-group">
+            <label for="grades">Grades :</label>
+            <input type="number" id="grades" name="grades" placeholder="Grades:" required>
+        </div><br>
+        <div class="table-group">
+            <label for="subject">Subject :</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject:" required>
+        </div><br>
+        <div class="table-group">
+            <label for="scores">Scores :</label>
+            <input type="number" id="scores" name="scores" placeholder="Scores:" required>
+        </div><br>
+        <button type="submit">Add Student</button>
+    </form>
+</body>
+</html>
